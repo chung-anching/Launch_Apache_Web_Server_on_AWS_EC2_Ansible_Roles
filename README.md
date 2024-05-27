@@ -7,7 +7,7 @@ Launch a Apache Web Server on AWS EC2 using Ansible Roles
 $  vi /etc/ansible/ansible.cfg
 
 
-'''
+```
 [defaults]
 inventory = /etc/ansible/hosts
 host_key_checking = False
@@ -18,10 +18,6 @@ become = true
 become_method = sudo
 become_user = root
 become_ask_pass = false
-'''
+```
 
 
-\`\`\`python
-def hello_world():
-    print("Hello, World!")
-\`\`\`
