@@ -31,6 +31,8 @@ secretkey: <your aws secret key>
 $ ansible-vault edit WEB2_vault.yml
 
 
+#### 在WEB2/web_main.yml 下新增以下內容：
+
 ```
 ---
 - name: Launch a Apache Web Server on AWS EC2 using Ansible Roles Medium
@@ -93,4 +95,42 @@ $ ansible-vault edit WEB2_vault.yml
       ansible.builtin.include_role:  
         name: httpdserver
 ```
+aws_access_key 和 aws_secret_key - 寫入在vault檔案中所建立的變數名稱。
+
+Ansible Role: Ansible Role基本上是檔案、任務、範本、變數和模組的集合。它用於將劇本分成多個文件。這將幫助您編寫複雜的劇本並使其更易於重複使用。
+
+cd 到 WEB2 資料夾下：
+$ ansible-galaxy init httpdserver
+
+$ vi tasks/main.yml
+新增以下內容：
+
+```
+---
+# tasks file for httpdserver
+- name: "Install httpd and php packages"
+  package:
+    name:
+      - "httpd"
+      - "php"
+    state: present
+
+- name: "copy code from GitHub"
+  get_url:
+    url: https://raw.githubusercontent.com/Shashikant17/ansible_task_for_httpdserver/main/index.php
+    dest: "/var/www/html/index.php"
+
+- name: "Start httpd services"
+  service:
+    name: httpd
+    state: started
+```
+
+vi /etc/ansible/hosts:
+
+
+#### 執行！
+$ ansible-playbook web_main.yml --ask-vault-pass --ask-become-pass -vvv
+
+成功畫面：
 
