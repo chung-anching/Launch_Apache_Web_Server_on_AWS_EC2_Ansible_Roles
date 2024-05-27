@@ -33,7 +33,7 @@ $ ansible-vault create WEB2_vault.yml
 accesskey: <your aws access key>
 secretkey: <your aws secret key>
 ```
-<img src="image/截圖 2024-05-27 晚上10.46.32.png" width="50%" height="50%">
+<img src="image/截圖 2024-05-27 晚上10.46.32.png" width="30%" height="30%">
 
 編輯：
 $ ansible-vault edit WEB2_vault.yml
@@ -111,6 +111,7 @@ cd 到 WEB2 資料夾下：
 $ ansible-galaxy init httpdserver
 
 產生的架構：
+
 <img src="image/截圖 2024-05-27 晚上10.58.17.png" width="70%" height="70%">
 
 $ vi tasks/main.yml
@@ -136,8 +137,6 @@ $ vi tasks/main.yml
     name: httpd
     state: started
 ```
-
-vi /etc/ansible/hosts:
 
 
 #### 執行！
