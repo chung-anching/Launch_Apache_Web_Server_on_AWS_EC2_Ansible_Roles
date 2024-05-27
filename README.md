@@ -55,7 +55,7 @@ $ ansible-vault edit WEB2_vault.yml
           state: present
           region: "us-east-1"
           vpc_subnet_id: subnet-0cc29a8eaa234d572 	
-          security_group: sg-09f00013b0673cd98  # default # group_id: sg-0af08fff9a57d28a5  #"sg-0115c41a0b3c39bda"
+          security_group: sg-09f00013b0673cd98  
           network:
             assign_public_ip: true
           aws_secret_key: "{{ aws_secret_key }}"
@@ -67,7 +67,7 @@ $ ansible-vault edit WEB2_vault.yml
 
     - name: "Add new Instance to Host group"    
       ansible.builtin.add_host:  #add_host:
-        hostname: "{{ item.public_ip_address }}" #"{{ item.public_ip_address }}" #"{{ item.public_ip }}"
+        hostname: "{{ item.public_ip_address }}" 
         groupname: webserver
         ansible_user: ec2-user #
         ansible_ssh_host_key_checking: false  #
