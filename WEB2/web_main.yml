@@ -9,7 +9,7 @@
       amazon.aws.ec2_instance:  #ec2:
           name: 05277
           key_name: fuck-0522
-          aws_access_key: AKIAXYKJQN7XYP4IIBNN
+          aws_access_key: XXXXXXXXXX
           instance_type: t2.micro
           image_id: "ami-0fe630eb857a6ec83"
           wait: yes
@@ -22,7 +22,6 @@
           security_group: sg-09f00013b0673cd98  # default # group_id: sg-0af08fff9a57d28a5  #"sg-0115c41a0b3c39bda"
           network:
             assign_public_ip: true
-          # aws_access_key: "{{ aws_access_key }}"
           aws_secret_key: "{{ aws_secret_key }}"
       register: ec2
 
@@ -61,18 +60,3 @@
     - name: Running role httpdserver
       ansible.builtin.include_role:  #include_role:
         name: httpdserver
-
-
-
-        # become: true
-        # become_user: ec2-user
-
-
-# - hosts: webserver
-#   connection: ssh
-#   gather_facts: false
-
-  # roles:
-  # - role: httpdserver
-  #   become: true
-  #   become_user: ec2-user
