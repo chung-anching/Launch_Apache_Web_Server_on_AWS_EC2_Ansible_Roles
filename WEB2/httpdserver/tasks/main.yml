@@ -1,0 +1,21 @@
+---
+# tasks file for httpdserver
+- name: "Install httpd and php packages"
+  package:
+    name:
+      - "httpd"
+      - "php"
+    state: present
+
+- name: "copy code from GitHub"
+  get_url:
+    url: https://raw.githubusercontent.com/Shashikant17/ansible_task_for_httpdserver/main/index.php
+    dest: "/var/www/html/index.php"
+
+- name: "Start httpd services"
+  service:
+    name: httpd
+    state: started
+      
+
+# https://shashi-kant.medium.com/launch-a-apache-web-server-on-aws-ec2-using-ansible-roles-d01483253b3d
