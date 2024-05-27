@@ -22,6 +22,7 @@ become_ask_pass = false
 
 $ sudo vi /etc/ansible/hosts
 畫面：
+
 <img src="image/截圖 2024-05-27 晚上11.00.59.png" width="70%" height="70%">
 
 
@@ -32,7 +33,8 @@ $ ansible-vault create WEB2_vault.yml
 accesskey: <your aws access key>
 secretkey: <your aws secret key>
 ```
-<img src="image/截圖 2024-05-27 晚上10.46.32.png" width="70%" height="70%">
+<img src="image/截圖 2024-05-27 晚上10.46.32.png" width="50%" height="50%">
+
 編輯：
 $ ansible-vault edit WEB2_vault.yml
 
