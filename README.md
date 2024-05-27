@@ -20,6 +20,11 @@ become_user = root
 become_ask_pass = false
 ```
 
+$ sudo vi /etc/ansible/hosts
+畫面：
+<img src="image/截圖 2024-05-27 晚上11.00.59.png" width="70%" height="70%">
+
+
 
 $ ansible-vault create WEB2_vault.yml
 放入AWS的Key:
@@ -27,6 +32,7 @@ $ ansible-vault create WEB2_vault.yml
 accesskey: <your aws access key>
 secretkey: <your aws secret key>
 ```
+<img src="image/截圖 2024-05-27 晚上10.46.32.png" width="70%" height="70%">
 編輯：
 $ ansible-vault edit WEB2_vault.yml
 
@@ -102,6 +108,9 @@ Ansible Role: Ansible Role基本上是檔案、任務、範本、變數和模組
 cd 到 WEB2 資料夾下：
 $ ansible-galaxy init httpdserver
 
+產生的架構：
+<img src="image/截圖 2024-05-27 晚上10.58.17.png" width="70%" height="70%">
+
 $ vi tasks/main.yml
 新增以下內容：
 
@@ -131,6 +140,8 @@ vi /etc/ansible/hosts:
 
 #### 執行！
 $ ansible-playbook web_main.yml --ask-vault-pass --ask-become-pass -vvv
+<img src="image/截圖 2024-05-27 晚上11.00.26.png" width="70%" height="70%">
 
 成功畫面：
+<img src="image/截圖 2024-05-27 晚上11.00.13.png" width="70%" height="70%">
 
